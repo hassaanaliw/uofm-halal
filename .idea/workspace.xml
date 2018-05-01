@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="604d923d-02e5-4259-adbd-5c50a47f7ecf" name="Default" comment="">
+    <list default="true" id="604d923d-02e5-4259-adbd-5c50a47f7ecf" name="Default" comment="Initial Commit. Add basic menu functionality. Backend mostly structured.">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/96dd7689-a19d-411f-aa23-dd9ab461f245/_metadata_/metadata" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/96dd7689-a19d-411f-aa23-dd9ab461f245/_metadata_/metadata.keystream" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/96dd7689-a19d-411f-aa23-dd9ab461f245/_metadata_/metadata.keystream.len" />
@@ -9,7 +9,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/96dd7689-a19d-411f-aa23-dd9ab461f245/_metadata_/metadata.values.at" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/96dd7689-a19d-411f-aa23-dd9ab461f245/_metadata_/metadata_i" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/96dd7689-a19d-411f-aa23-dd9ab461f245/_metadata_/metadata_i.len" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/halal.db" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/96dd7689-a19d-411f-aa23-dd9ab461f245.xml" />
@@ -23,6 +22,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/mdaily-dining-hall.iml" afterPath="$PROJECT_DIR$/.idea/mdaily-dining-hall.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -103,12 +103,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="663">
               <caret line="105" column="23" lean-forward="false" selection-start-line="105" selection-start-column="23" selection-end-line="105" selection-end-column="23" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="295">
+                <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -174,6 +187,7 @@
         <option value="$PROJECT_DIR$/halal/__init__.py" />
         <option value="$PROJECT_DIR$/halal/views.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -516,13 +530,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/michigan-daily/lib/python3.6/site-packages/flask/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="48" lean-forward="true" selection-start-line="2" selection-start-column="4" selection-end-line="9" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/uofm_dining_hall_api/menu_scraper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
@@ -826,6 +833,17 @@
         <state relative-caret-position="663">
           <caret line="105" column="23" lean-forward="false" selection-start-line="105" selection-start-column="23" selection-end-line="105" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="295">
+            <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
