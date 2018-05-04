@@ -46,6 +46,7 @@ class Menu(db.Model):
     date = db.Column(db.DateTime)
     hall_id = db.Column(db.Integer, db.ForeignKey('hall.hall_id'))
     meals = db.relationship('Meal', backref='menu')
+    hours = db.Column(db.String)
 
     def __init__(self, date):
         self.date = date

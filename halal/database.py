@@ -21,7 +21,11 @@ def create_all_halls():
     :return: void
     """
     dir_path = os.path.dirname(os.path.realpath(__file__)) + "/dining_halls_json_data/"
-    for folder in os.listdir(dir_path):
+    folders = os.listdir(dir_path)
+    # Ignore metadata files like .DS_Store files as listdir will fail if called on a file
+    # listdir is called again in create_all_menus()
+    folders = [f for f in folders if os.path.isdir(os.path.join(dir_path, f))]
+    for folder in folders:
         hall_name = " ".join([x.capitalize() for x in folder.split("_")])
         hall = models.Hall(hall_name)
         if not models.Hall.query.filter_by(name=hall_name).first():
@@ -38,7 +42,8 @@ def create_all_menus():
     for hall in halls:
         dir_path = os.path.dirname(os.path.realpath(__file__)) + "/dining_halls_json_data/"
         # Each menu is stored in the format YEAR-MONTH-DAY.json e.g 2018-04-11.json
-        for file in os.listdir(os.path.join(dir_path, hall.get_folder_name_format())):
+        files = os.listdir(os.path.join(dir_path, hall.get_folder_name_format()))
+        for file in files:
             file_date = file.split(".")[0]
             date = datetime.datetime.strptime(file_date, "%Y-%m-%d")
             menu = models.Menu(date)
@@ -57,7 +62,15 @@ def create_all_meals_and_courses_and_menu_items():
     for hall in halls:
         print("Building menu for " + hall.name)
         for menu in hall.menus:
-            meals = menu.load_json()['menu']['meal']
+            json = menu.load_json()
+
+            meals = json['menu']['meal']
+
+            hours = []
+            if 'calendar_event' in json['hours']:
+                hours = json['hours']['calendar_event']
+                menu.hours = str(hours)
+
             for meal in meals:
                 # Ignore useless meals
                 if meal['name'] in MEALS:
@@ -68,10 +81,10 @@ def create_all_meals_and_courses_and_menu_items():
                     meal_obj.add()
 
                     # Iterate over courses in the JSON structure
-                    add_courses_from_meal(meal_obj, meal)
+                    add_courses_from_meal(meal_obj, meal, json['hours'])
 
 
-def add_courses_from_meal(meal_obj, meal_json):
+def add_courses_from_meal(meal_obj, meal_json, hours_json):
     courses = []
     try:
         courses = meal_json['course']
@@ -142,11 +155,13 @@ def print_halal_meals():
     :return: void
     """
     halal_items = models.MenuItem.query.filter_by(halal=True).all()
+    # the __repr__ function for each MenuItem prints out debug info so we don't
+    # have to explicitly print details in this function
     pprint(halal_items)
 
 
 def build_database():
-    print("Building Database")
+    print("*** Building Database ***")
     db.drop_all()
     db.create_all()
     create_all_halls()

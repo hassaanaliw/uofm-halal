@@ -12,8 +12,7 @@ from halal import app, data
 from pprint import pprint
 
 
-# Set the route and accepted methods
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
 def index():
     """
     Returns a JSON response containing all the halal courses served across UofM for today
@@ -49,4 +48,17 @@ def index():
 
     :return:
     """
-    return "Hello"
+    return jsonify(data.fetch_menus(datetime.datetime.now()))
+
+
+@app.route('/halal/<year>/<month>/<day>/', methods=['GET'])
+def halal_by_date(year, month, day):
+    """
+    Returns a JSON response containing all the halal courses served across UofM for the
+    specified date
+    Sample Response same as index
+
+    :return:
+    """
+    date = datetime.datetime(int(year), int(month), int(day), 0, 0)
+    return jsonify(data.fetch_menus(date))
