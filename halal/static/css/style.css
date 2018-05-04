@@ -65,8 +65,7 @@
 }
 
 .meal-header {
-    background: #215e90;
-    color: white;
+    color: black;
 }
 
 .meal-cards-holder .col-lg-4 {
@@ -75,6 +74,19 @@
 
 }
 
-.meal-name{
+.meal-name {
     text-transform: capitalize;
+}
+
+.bg-primary {
+    background: white !important;
+    color: black;
+}
+
+.navbar-dark .navbar-brand {
+    color: black;
+}
+
+li.list-group-item:hover{
+    background: rgba(176, 156, 226, 0.26);
 }

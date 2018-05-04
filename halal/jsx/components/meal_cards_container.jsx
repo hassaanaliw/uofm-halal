@@ -62,7 +62,7 @@ class MealCardsContainer extends React.Component {
                 {
                     data.map(function (item) {
 
-                        var headerStyle = {'background': map[item.dining_hall]};
+                        var headerStyle = {'border-top': "8px solid " + map[item.dining_hall]};
 
                         return (
                             <div className="col-lg-4">
