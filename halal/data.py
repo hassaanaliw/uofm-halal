@@ -4,6 +4,7 @@ Flask API
 
 Hassaan Ali Wattoo <hawattoo@umich.edu>
 """
+import json
 from pprint import pprint
 
 from halal import models
@@ -58,15 +59,38 @@ def fetch_menu(date):
         .filter(models.MenuItem.halal == True)
 
     for course in halal_courses.all():
-        json = {
+        json_times = json.loads(course[4])
+
+        if (isinstance(json_times, dict)):
+            times = [{
+                "name": json_times["event_title"],
+                "desc": "",
+            }]
+            start = datetime.strptime(json_times['event_time_start'][:-6], "%Y-%m-%dT%H:%M:%S")
+            end = datetime.strptime(json_times['event_time_end'][:-6], "%Y-%m-%dT%H:%M:%S")
+            times[0]["desc"] = "%s to %s" % (start.time(), end.time())
+
+        else:
+            times = []
+            for time in json_times:
+                start = datetime.strptime(time['event_time_start'][:-6], "%Y-%m-%dT%H:%M:%S")
+                end = datetime.strptime(time['event_time_end'][:-6], "%Y-%m-%dT%H:%M:%S")
+                desc = "%s to %s" % (start.time(), end.time())
+                times.append({
+                    "name": time["event_title"],
+                    "desc": desc,
+                })
+
+        resp = {
             "dining_hall": course[5],
             'date': course[3],
             'dish_name': course[0],
             'course_name': course[1],
             'meal_name': course[2],
-            'hours': course[4]
+            'hours': times
         }
-        response['halal_dishes'].append(json)
+
+        response['halal_dishes'].append(resp)
 
     return response
 

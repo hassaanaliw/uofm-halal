@@ -5,6 +5,8 @@ from flask_sqlalchemy import SQLAlchemy
 # Define the WSGI application object
 app = Flask(__name__)
 
+app.url_map.strict_slashes = False
+
 # Configurations
 app.config.from_object('config')
 

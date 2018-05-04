@@ -1,0 +1,80 @@
+.nav-title {
+    margin-left: 20px;
+    text-transform: capitalize;
+    font-weight: 100;
+    font-family: "Google Sans", "Lato", sans-serif;
+}
+
+/**********************************
+                MEAL
+***********************************/
+
+.meals-holder {
+    margin-top: 2rem;
+    min-height: 300px;
+}
+
+.meal-date {
+    text-align: center;
+    padding-top: 30px;
+
+}
+
+.meal-date h2 {
+    font-weight: bold;
+    font-family: "Google Sans", "Montserrat", sans-serif;
+    font-size: 32px;
+}
+
+.meal-card {
+    min-height: 150px;
+}
+
+.meal-cards-holder {
+    min-width: 100%;
+    display: inline-block;
+    margin-top: 40px;
+    text-align: -moz-center;
+    text-align: -webkit-center;
+}
+
+.card-title {
+    text-transform: capitalize;
+}
+
+.meal-cards-holder .card-title {
+    text-align: -webkit-center;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: normal;
+}
+
+.meal-cards-holder .card-subtitle {
+    text-align: center;
+}
+
+.meal-hours .title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 14px;
+
+}
+
+.meal-hours {
+    text-align: center;
+}
+
+.meal-header {
+    background: #215e90;
+    color: white;
+}
+
+.meal-cards-holder .col-lg-4 {
+    margin: auto;
+    margin-bottom: 30px;
+
+}
+
+.meal-name{
+    text-transform: capitalize;
+}

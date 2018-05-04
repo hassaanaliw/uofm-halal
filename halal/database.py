@@ -8,6 +8,7 @@ Hassaan Ali Wattoo <hawattoo@umich.edu>
 from halal import db, models
 import os
 import datetime
+import json as json_f
 from pprint import pprint
 
 # only consider the following meals when parsing the json files
@@ -69,13 +70,13 @@ def create_all_meals_and_courses_and_menu_items():
             hours = []
             if 'calendar_event' in json['hours']:
                 hours = json['hours']['calendar_event']
-                menu.hours = str(hours)
+                menu.hours = json_f.dumps(hours)
 
             for meal in meals:
                 # Ignore useless meals
                 if meal['name'] in MEALS:
                     # Create meal object and add to database
-                    meal_obj = models.Meal(meal['name'])
+                    meal_obj = models.Meal(meal['name'].lower().capitalize())
                     meal_obj.menu_id = menu.menu_id
                     menu.add_meal(meal_obj)
                     meal_obj.add()
