@@ -10,6 +10,7 @@ app.config.from_object('config')
 
 db = SQLAlchemy(app)
 
+import halal.api
 import halal.views
 import halal.models
 import halal.database

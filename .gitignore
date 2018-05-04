@@ -104,3 +104,5 @@ ENV/
 
 uofm_dining_hall_api/
 dining_halls_json_data/
+
+node_modules/*

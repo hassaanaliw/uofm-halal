@@ -1,31 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<head>
+    <title>Halal @ UofM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-<title>Dining Hall</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Favicon -->
+    <link rel="icon" type="image/ico" href="{{ url_for('static', filename='img/favicon.png') }}"/>
 
-
-<link href="https://fonts.googleapis.com/css?family=Lato|Montserrat:400,700|PT+Sans"
-      rel="stylesheet">
-<!-- Bootstrap core CSS-->
-<link href="../static/css/bootstrap.min.css" rel="stylesheet">
-<!-- Custom fonts for this template-->
-<!-- Page level plugin CSS-->
-<!-- Custom styles for this template-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
 
-<body>
+<body class="overflow-hidden">
 
+
+<div class="container custom-container">
+    <div class="row">
+        <div class="col-md-6 left-col">
+        </div>
+        <div class="col-md-6 right-col">
+
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+<script type="text/javascript"
+        src="{{ url_for('static', filename='js/bootstrap.min.js') }}">
+</script>
+<script type="text/javascript"
+        src="{{ url_for('static', filename='js_bundles/home_bundle.1.0.1.js') }}">
+</script>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="../static/js/browser.min.js"></script>
-<script src="../static/js/bootstrap.min.js"></script>
-<script src="../static/js/react.js"></script>
-<script src="../static/js/react-dom.min.js"></script>
-
-
 </html>
