@@ -1,7 +1,10 @@
 const path = require('path');
 
 var json = require('./version.json');
-console.log("js:", json)
+console.log("js:", json);
+
+const webpack = require('webpack');
+
 
 module.exports = {
     entry: {
@@ -9,6 +12,15 @@ module.exports = {
 
         // put other jsx "main" files here
     },
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin()
+
+    ],
     output: {
         path: path.join(__dirname, '/halal/static/js_bundles/'),
         filename: '[name]_bundle.' + json['version'] + '.js',
