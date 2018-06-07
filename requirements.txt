@@ -7,9 +7,4 @@ MarkupSafe==1.0
 nodeenv==1.3.0
 SQLAlchemy==1.2.7
 Werkzeug==0.14.1
-<<<<<<< HEAD
 psycopg2
-gunicorn
-=======
-psycopg2
->>>>>>> 58f1e37fde4609cfa1021e4aa9ec0b3d7df364c2
