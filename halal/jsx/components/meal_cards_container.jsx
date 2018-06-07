@@ -48,7 +48,10 @@ class MealCardsContainer extends React.Component {
             "South Quad Dining Hall": "#ff6a3b",
             "Mosher Jordan Dining Hall": "#009688",
             "East Quad Dining Hall": "#008eff",
-            "Martha Cook Dining Hall": "#f93e7e"
+            "Martha Cook Dining Hall": "#f93e7e",
+            "Lawyers Club Dining Hall": "#322133",
+            "North Quad Dining Hall": "#fdd835",
+            "Twigs At Oxford": "#e91e63"
         }
 
         if (isEmpty(data)) {

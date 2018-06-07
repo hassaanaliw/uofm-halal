@@ -87,6 +87,41 @@
     color: black;
 }
 
-li.list-group-item:hover{
+li.list-group-item:hover {
     background: rgba(176, 156, 226, 0.26);
+}
+
+.navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
+    color: #663ab7;
+}
+
+.button-date-prev {
+    float: left;
+}
+
+.button-date-prev:hover {
+    cursor: pointer;
+
+}
+
+.button-date {
+    padding: 10px 20px;
+    background: #2a3133;
+    color: white;
+    font-weight: bold;
+}
+
+.button-date:hover {
+    background: #eeeeee;
+    color: black;
+}
+
+.button-date-next {
+    float: right;
+
+}
+
+.button-date-next:hover {
+    cursor: pointer;
+
 }

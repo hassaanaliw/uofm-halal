@@ -28,7 +28,7 @@ CSRF_SESSION_KEY = "this_is_secret_hassaan_replace"
 SECRET_KEY = "this_is_secret_hassaan_replace"
 
 # TODO Define Port based on environment
-PORT = 4444
+PORT = 4141
 
 if 'DYNO' in os.environ:
     PORT = 8000

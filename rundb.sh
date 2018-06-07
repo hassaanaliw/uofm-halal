@@ -12,4 +12,4 @@ then
 fi
 
 ./node_modules/.bin/webpack --watch & # Run webpack (with watch) in background
-flask run --host 127.0.0.1 --port 4444 --with-threads
+flask run --host 127.0.0.1 --port 4141 --with-threads
