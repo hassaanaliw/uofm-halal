@@ -1,4 +1,7 @@
 # uofm-halal
+
+[![Build Status](https://travis-ci.com/hassaanaliw/uofm-halal.svg?branch=master)](https://travis-ci.com/hassaanaliw/uofm-halal)
+
 A React and Flask App that displays all marked Halal (Zabiha) courses being served at University of Michigan Dining Halls
 
 # Setup Environments and Run
