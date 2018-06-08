@@ -1,0 +1,15 @@
+# Config file for automatic testing at travis-ci.org
+sudo: false  # http://docs.travis-ci.com/user/migrating-from-legacy/
+language: python
+python:
+  - 3.4
+  - 3.5
+  - 3.6
+install: pip install -r requirements.txt
+before_script:
+  - export LC_ALL=en_US.utf-8
+  - export FLASK_DEBUG=True
+  - export FLASK_APP=halal/__init__.py
+  - export PROD_SETTINGS=/dev/null
+
+script: python tests.py

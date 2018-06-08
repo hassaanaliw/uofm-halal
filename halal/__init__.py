@@ -9,6 +9,7 @@ app.url_map.strict_slashes = False
 
 # Configurations
 app.config.from_object('config')
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 
 db = SQLAlchemy(app)
 

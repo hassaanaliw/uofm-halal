@@ -10,6 +10,8 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 # SQLite for this example
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'halal.db')
 DATABASE_CONNECT_OPTIONS = {}
+JSONIFY_PRETTYPRINT_REGULAR = False
+SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 # Application threads. A common general assumption is
 # using 2 per available processor cores - to handle
