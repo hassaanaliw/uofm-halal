@@ -21,7 +21,8 @@ def create_all_halls():
     Creates an entry for each dining hall in the database
     :return: void
     """
-    dir_path = os.path.dirname(os.path.realpath(__file__)) + "/dining_halls_json_data/"
+    dir_path = os.path.dirname(
+        os.path.realpath(__file__)) + "/dining_halls_json_data/"
     folders = os.listdir(dir_path)
     # Ignore metadata files like .DS_Store files as listdir will fail if called on a file
     # listdir is called again in create_all_menus()
@@ -41,9 +42,13 @@ def create_all_menus():
     """
     halls = models.Hall.query.all()
     for hall in halls:
-        dir_path = os.path.dirname(os.path.realpath(__file__)) + "/dining_halls_json_data/"
+        dir_path = (
+            os.path.dirname(
+                os.path.realpath(__file__)) + "/dining_halls_json_data/"
+        )
         # Each menu is stored in the format YEAR-MONTH-DAY.json e.g 2018-04-11.json
-        files = os.listdir(os.path.join(dir_path, hall.get_folder_name_format()))
+        files = os.listdir(
+            os.path.join(dir_path, hall.get_folder_name_format()))
         for file in files:
             file_date = file.split(".")[0]
             date = datetime.datetime.strptime(file_date, "%Y-%m-%d")
@@ -64,31 +69,29 @@ def create_all_meals_and_courses_and_menu_items():
         print("Building menu for " + hall.name)
         for menu in hall.menus:
             json = menu.load_json()
-
-            meals = json['menu']['meal']
-
+            meals = json["menu"]["meal"]
             hours = []
-            if 'calendar_event' in json['hours']:
-                hours = json['hours']['calendar_event']
+            if "calendar_event" in json["hours"]:
+                hours = json["hours"]["calendar_event"]
                 menu.hours = json_f.dumps(hours)
 
             for meal in meals:
                 # Ignore useless meals
-                if meal['name'] in MEALS:
+                if meal["name"] in MEALS:
                     # Create meal object and add to database
-                    meal_obj = models.Meal(meal['name'].lower().capitalize())
+                    meal_obj = models.Meal(meal["name"].lower().capitalize())
                     meal_obj.menu_id = menu.menu_id
                     menu.add_meal(meal_obj)
                     meal_obj.add()
 
                     # Iterate over courses in the JSON structure
-                    add_courses_from_meal(meal_obj, meal, json['hours'])
+                    add_courses_from_meal(meal_obj, meal, json["hours"])
 
 
 def add_courses_from_meal(meal_obj, meal_json, hours_json):
     courses = []
     try:
-        courses = meal_json['course']
+        courses = meal_json["course"]
     except KeyError:
         # Michigan sometimes includes meals with warning messages
         # like "Not serving this course"
@@ -99,7 +102,7 @@ def add_courses_from_meal(meal_obj, meal_json, hours_json):
     # Why Michigan doesn't return a list of length one is
     # beyond me.
     if isinstance(courses, dict):
-        course = models.Course(courses['name'])
+        course = models.Course(courses["name"])
         course.meal_id = meal_obj.meal_id
         meal_obj.add_course(course)
         course.add()
@@ -107,7 +110,7 @@ def add_courses_from_meal(meal_obj, meal_json, hours_json):
     # Multiple courses for this meal
     else:
         for _course in courses:
-            course = models.Course(_course['name'])
+            course = models.Course(_course["name"])
             course.meal_id = meal_obj.meal_id
             meal_obj.add_course(course)
             course.add()
@@ -117,7 +120,7 @@ def add_courses_from_meal(meal_obj, meal_json, hours_json):
 def add_menu_items_from_course(course_obj, course_json):
     menuitems = []
     try:
-        menuitems = course_json['menuitem']
+        menuitems = course_json["menuitem"]
     except KeyError:
         # Michigan sometimes includes meals with warning messages
         # like "Not serving this course"
@@ -128,10 +131,10 @@ def add_menu_items_from_course(course_obj, course_json):
     # Why Michigan doesn't return a list of length one is
     # beyond me.
     if isinstance(menuitems, dict):
-        menuitem = models.MenuItem(menuitems['name'])
+        menuitem = models.MenuItem(menuitems["name"])
         menuitem.course_id = course_obj.course_id
-        if 'trait' in menuitems:
-            if 'halal' in menuitems['trait']:
+        if "trait" in menuitems:
+            if "halal" in menuitems["trait"]:
                 # Weed Out Non Halal Courses
                 menuitem.halal = True
         course_obj.add_menu_item(menuitem)
@@ -139,9 +142,9 @@ def add_menu_items_from_course(course_obj, course_json):
     # Multiple MenuItems
     else:
         for item in menuitems:
-            menuitem = models.MenuItem(item['name'])
-            if 'trait' in item:
-                if 'halal' in item['trait']:
+            menuitem = models.MenuItem(item["name"])
+            if "trait" in item:
+                if "halal" in item["trait"]:
                     # Weed Out Non Halal Courses
                     menuitem.halal = True
             menuitem.course_id = course_obj.course_id

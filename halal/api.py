@@ -5,14 +5,23 @@ Hassaan Ali Wattoo <hawattoo@umich.edu>
 """
 
 import datetime
-from flask import Blueprint, request, render_template, \
-    flash, g, session, redirect, url_for, jsonify
+from flask import (
+    Blueprint,
+    request,
+    render_template,
+    flash,
+    g,
+    session,
+    redirect,
+    url_for,
+    jsonify,
+)
 import random
 from halal import app, data
 from pprint import pprint
 
 
-@app.route('/halal/', methods=['GET'])
+@app.route("/halal/", methods=["GET"])
 def halal():
     """
     Returns a JSON response containing all the halal courses served across UofM for today
@@ -51,7 +60,7 @@ def halal():
     return jsonify(data.fetch_menus(datetime.datetime.now()))
 
 
-@app.route('/halal/<year>/<month>/<day>/', methods=['GET'])
+@app.route("/halal/<year>/<month>/<day>/", methods=["GET"])
 def halal_by_date(year, month, day):
     """
     Returns a JSON response containing all the halal courses served across UofM for the

@@ -8,8 +8,8 @@ app = Flask(__name__)
 app.url_map.strict_slashes = False
 
 # Configurations
-app.config.from_object('config')
-app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
+app.config.from_object("config")
+app.config["JSONIFY_PRETTYPRINT_REGULAR"] = False
 
 db = SQLAlchemy(app)
 
@@ -22,4 +22,4 @@ import halal.database
 # Sample HTTP error handling
 @app.errorhandler(404)
 def not_found(error):
-    return 'Error, 404', 404
+    return "Error, 404", 404
