@@ -53,6 +53,7 @@ class Home extends React.Component {
         this.renderChildren();
     }
 
+
     updateDate(action) {
         if (action === "previous") {
             if (this.state.currentIndex === 0) {
@@ -103,7 +104,13 @@ class Home extends React.Component {
         return (
 
             // returns a selection menu for mobile
-            <div>
+            <div onKeyDown={(event) => {
+                if (event.keyCode === "37") {
+                    _this.updateDate("previous")
+                } else if (event.keyCode === "39") {
+                    _this.updateDate("next")
+                }
+            }}>
 
 
                 <div id="meal-holder-primary">

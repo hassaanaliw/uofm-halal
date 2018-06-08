@@ -109,6 +109,8 @@ li.list-group-item:hover {
     background: #2a3133;
     color: white;
     font-weight: bold;
+    border-radius: 4%;
+    box-shadow: 0px 0px 1px #acacac;
 }
 
 .button-date:hover {
